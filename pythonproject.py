@@ -12,17 +12,22 @@ local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.',
 # Alt. 2: a progress bar with reduced output (every 1000 blocks)
 local_file, headers = urlretrieve(URL_PATH, LOCAL_FILE, lambda x,y,z: print('.', end='', flush=True) if x % 100 == 0 else False)
 
+totalrequests_lastyear = 0
+totalrequests = 0
+
 # This line opens the log file
 f=open('local_copy.log', "r")
 
 # This line takes each line in the log file and stores it as an element in the list
 lines = f.readlines()
 
-linesplit = line.split()
+#linesplit = lines.split()
+
 for line in lines:
-   if line.find("1995") = 1:
-    print lines
-    
-    
-    #print(line.split())
-##sfsafdsafsafsafs ssfdsdf testing i wanna CRY
+   totalrequests +=1
+   if line.find("1995") != -1:
+      totalrequests_lastyear += 1
+
+f.close()
+print("Last Year Requests: ", totalrequests_lastyear)
+print("Total Requests: ", totalrequests)
