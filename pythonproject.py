@@ -20,8 +20,9 @@ lines = f.readlines()
 
 linesplit = line.split()
 for line in lines:
-   # if line.find("1995") = 1:
+   if line.find("1995") = 1:
     print lines
     
     
     #print(line.split())
+##sfsafdsafsafsafs ssfdsdf testing
