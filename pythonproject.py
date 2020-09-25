@@ -86,16 +86,16 @@ print("The least requested file:", sorted_files[0])
 print("The most requested file:", sorted_files[len(sorted_files)-1])
 
 #Declares variables 
-success_requests = 0
+notsuccess_requests = 0
 redirected_requests = 0
 
 
 #Reads through each line and if there is anytime 4xx (x being wildcards) then it adds to counter
 for line in lines:   
-   success_requests +=1
+   notsuccess_requests +=1
    for i in range(400, 499):
       if line.find(str(i)) != -1:
-         success_requests += 1
+         notsuccess_requests += 1
 
 #Reads through each line and if there is anytime 3xx (x being wildcards) then it adds to counter
 for line in lines:   
@@ -116,7 +116,7 @@ for line in lines:
 #Declares my variables
 #Also finds the percentage of successful and redirected requests out of total requests
 percentsuc = 0
-percentsuc = success_requests / totalrequests
+percentsuc = notsuccess_requests / totalrequests
 percentredir = 0
 percentredir = redirected_requests / totalrequests
 
@@ -124,7 +124,7 @@ f.close()
 #Prints out information
 print("\nLast Year Requests: ", totalrequests_lastyear)
 print("Total Requests: ", totalrequests)
-print("Successful requests with 4xx status code in percentage:  ", (percentsuc))
+print("Not successful requests with 4xx status code in percentage:  ", (percentsuc))
 print("Redirected requests with 3xx status code in percentage: ", (percentredir))
 
 
